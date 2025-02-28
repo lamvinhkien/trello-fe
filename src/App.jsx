@@ -6,6 +6,7 @@ import Select from '@mui/material/Select'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import SettingsBrightnessOutlinedIcon from '@mui/icons-material/SettingsBrightnessOutlined'
+import { Box } from '@mui/material'
 
 function App() {
   const { mode, setMode } = useColorScheme()
@@ -26,12 +27,12 @@ function App() {
           onChange={handleChange}
         >
           <MenuItem value='light'>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+            <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
               <LightModeIcon fontSize='small' />
               <div>
                 Light
               </div>
-            </div>
+            </Box>
           </MenuItem>
           <MenuItem value='dark'>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
