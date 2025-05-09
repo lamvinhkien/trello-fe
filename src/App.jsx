@@ -8,7 +8,7 @@ import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import SettingsBrightnessOutlinedIcon from '@mui/icons-material/SettingsBrightnessOutlined'
 import { Box } from '@mui/material'
 
-function App() {
+function ModeSelect() {
   const { mode, setMode } = useColorScheme()
 
   const handleChange = (event) => {
@@ -19,13 +19,7 @@ function App() {
     <>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="dark-light-mode-label">Mode</InputLabel>
-        <Select
-          labelId="dark-light-mode-label"
-          id="dark-light-mode"
-          value={mode}
-          label="Mode"
-          onChange={handleChange}
-        >
+        <Select labelId="dark-light-mode-label" id="dark-light-mode" value={mode} label="Mode" onChange={handleChange}>
           <MenuItem value='light'>
             <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
               <LightModeIcon fontSize='small' />
@@ -52,6 +46,14 @@ function App() {
           </MenuItem>
         </Select>
       </FormControl>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <>
+      <ModeSelect />
     </>
   )
 }
