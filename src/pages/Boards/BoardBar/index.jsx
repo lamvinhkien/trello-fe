@@ -1,0 +1,17 @@
+import Box from '@mui/material/Box'
+
+const BoardBar = () => {
+  return (
+    <Box sx={{
+      width: '100%',
+      height: theme => theme.trello.boardBarHeight,
+      bgcolor: 'primary.dark',
+      display: 'flex',
+      alignItems: 'center'
+    }}>
+      Board Bar
+    </Box>
+  )
+}
+
+export default BoardBar
