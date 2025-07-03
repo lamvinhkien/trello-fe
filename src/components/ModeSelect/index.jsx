@@ -16,37 +16,35 @@ const ModeSelect = () => {
   }
 
   return (
-    <>
-      <FormControl>
-        <InputLabel id="dark-light-mode-label">Mode</InputLabel>
-        <Select labelId="dark-light-mode-label" id="dark-light-mode" value={mode} label="Mode" onChange={handleChange}>
-          <MenuItem value='light'>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-              <LightModeIcon fontSize='small' />
-              <div>
-                Light
-              </div>
+    <FormControl sx={{ minWidth: 128 }} size="small">
+      <InputLabel id="dark-light-mode-label">Mode</InputLabel>
+      <Select labelId="dark-light-mode-label" id="dark-light-mode" value={mode} label="Mode" onChange={handleChange}>
+        <MenuItem value='light'>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
+            <LightModeIcon sx={{ fontSize: '1.2rem' }} />
+            <Box sx={{ fontSize: '1rem' }}>
+              Light
             </Box>
-          </MenuItem>
-          <MenuItem value='dark'>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-              <DarkModeOutlinedIcon fontSize='small' />
-              <div>
-                Dark
-              </div>
+          </Box>
+        </MenuItem>
+        <MenuItem value='dark'>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
+            <DarkModeOutlinedIcon sx={{ fontSize: '1.2rem' }} />
+            <Box sx={{ fontSize: '1rem' }}>
+              Dark
             </Box>
-          </MenuItem>
-          <MenuItem value='system'>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-              <SettingsBrightnessOutlinedIcon fontSize='small' />
-              <div>
-                System
-              </div>
+          </Box>
+        </MenuItem>
+        <MenuItem value='system'>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
+            <SettingsBrightnessOutlinedIcon sx={{ fontSize: '1.2rem' }} />
+            <Box sx={{ fontSize: '1rem' }}>
+              System
             </Box>
-          </MenuItem>
-        </Select>
-      </FormControl>
-    </>
+          </Box>
+        </MenuItem>
+      </Select>
+    </FormControl>
   )
 }
 
