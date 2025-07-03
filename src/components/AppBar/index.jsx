@@ -40,7 +40,7 @@ const AppBar = () => {
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         <TextField id="outlined-search" label="Search..." type="search" size='small' />
         <ModeSelect />
-        <Tooltip title="Notification">
+        <Tooltip title="Notifications">
           <Badge color="secondary" variant="dot">
             <NotificationsNoneIcon sx={{ color: 'primary.main' }} />
           </Badge>

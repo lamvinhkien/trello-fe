@@ -16,29 +16,29 @@ const ModeSelect = () => {
   }
 
   return (
-    <FormControl sx={{ minWidth: 128 }} size="small">
+    <FormControl size="small">
       <InputLabel id="dark-light-mode-label">Mode</InputLabel>
       <Select labelId="dark-light-mode-label" id="dark-light-mode" value={mode} label="Mode" onChange={handleChange}>
         <MenuItem value='light'>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-            <LightModeIcon sx={{ fontSize: '1.2rem' }} />
-            <Box sx={{ fontSize: '1rem' }}>
+            <LightModeIcon />
+            <Box>
               Light
             </Box>
           </Box>
         </MenuItem>
         <MenuItem value='dark'>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-            <DarkModeOutlinedIcon sx={{ fontSize: '1.2rem' }} />
-            <Box sx={{ fontSize: '1rem' }}>
+            <DarkModeOutlinedIcon />
+            <Box>
               Dark
             </Box>
           </Box>
         </MenuItem>
         <MenuItem value='system'>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-            <SettingsBrightnessOutlinedIcon sx={{ fontSize: '1.2rem' }} />
-            <Box sx={{ fontSize: '1rem' }}>
+            <SettingsBrightnessOutlinedIcon />
+            <Box>
               System
             </Box>
           </Box>
