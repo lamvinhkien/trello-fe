@@ -25,7 +25,7 @@ import { CSS } from '@dnd-kit/utilities'
 import TextField from '@mui/material/TextField'
 import CloseIcon from '@mui/icons-material/Close'
 
-const Column = ({ column }) => {
+const Column = ({ column, createNewCard }) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: column._id,
     data: { ...column }
@@ -54,10 +54,21 @@ const Column = ({ column }) => {
   const toggleOpenNewCardForm = () => setOpenNewCardForm(!openNewCardForm)
 
   const [newCardTitle, setNewCardTitle] = useState('')
-  const addNewCard = () => {
+  const addNewCard = async () => {
     if (!newCardTitle) {
       toast.error('Please enter card title.')
+      return
     }
+
+    const newCardData = {
+      title: newCardTitle,
+      columnId: column._id
+    }
+
+    await createNewCard(newCardData)
+
+    toggleOpenNewCardForm()
+    setNewCardTitle('')
   }
 
   return (
@@ -183,7 +194,7 @@ const Column = ({ column }) => {
                 sx={{
                   '& label': { color: 'text.primary' },
                   '& input': {
-                    color: theme => theme.palette.primary.main,
+                    color: theme => theme.palette.mode === 'dark' ? 'white' : 'black',
                     bgcolor: theme => theme.palette.mode === 'dark' ? '#333643' : 'white'
                   },
                   '& label.Mui-focused': { color: theme => theme.palette.primary.main },
@@ -214,7 +225,7 @@ const Column = ({ column }) => {
                 <CloseIcon
                   data-no-dnd="true"
                   sx={{
-                    color: theme => theme.palette.warning.light,
+                    color: theme => theme.palette.mode === 'dark' ? 'white' : 'black',
                     cursor: 'pointer'
                   }}
                   fontSize='small'

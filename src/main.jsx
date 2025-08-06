@@ -10,6 +10,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <CssVarsProvider theme={theme}>
     <CssBaseline />
     <App />
-    <ToastContainer position='top-center' theme="colored" autoClose={3000} />
+    <ToastContainer position='top-center' theme="colored" autoClose={3500} />
   </CssVarsProvider>
 )

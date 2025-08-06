@@ -8,15 +8,25 @@ import { SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortabl
 import TextField from '@mui/material/TextField'
 import CloseIcon from '@mui/icons-material/Close'
 
-const ListColumns = ({ columns }) => {
+const ListColumns = ({ columns, createNewColumn, createNewCard }) => {
   const [openNewColumnForm, setOpenNewColumnForm] = useState(false)
   const toggleOpenNewColumnForm = () => setOpenNewColumnForm(!openNewColumnForm)
 
   const [newColumnTitle, setNewColumnTitle] = useState('')
-  const addNewColumn = () => {
+  const addNewColumn = async () => {
     if (!newColumnTitle) {
       toast.error('Please enter column title.')
+      return
     }
+
+    const newColumnData = {
+      title: newColumnTitle
+    }
+
+    await createNewColumn(newColumnData)
+
+    toggleOpenNewColumnForm()
+    setNewColumnTitle('')
   }
 
   return (
@@ -31,7 +41,7 @@ const ListColumns = ({ columns }) => {
         '&::-webkit-scrollbar-track': { m: 2 }
       }}>
         {/* List Columns */}
-        {columns?.map(column => <Column key={column._id} column={column} />)}
+        {columns?.map(column => <Column key={column._id} column={column} createNewCard={createNewCard} />)}
 
         {/* Button add new column */}
         {!openNewColumnForm
@@ -106,8 +116,7 @@ const ListColumns = ({ columns }) => {
               <CloseIcon
                 sx={{
                   color: 'white',
-                  cursor: 'pointer',
-                  '&:hover': { color: theme => theme.palette.warning.light }
+                  cursor: 'pointer'
                 }}
                 fontSize='small'
                 onClick={toggleOpenNewColumnForm}
